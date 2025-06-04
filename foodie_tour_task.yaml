@@ -14,7 +14,6 @@ tools:
   integration:
     provider: weather
     setup: {}
-      # openweathermap_api_key: ${OPENWEATHER_API_KEY}
 
 - name: search
   type: integration
