@@ -15,7 +15,6 @@ A delightful AI-powered application that creates personalized food tours for mul
 
 - Python 3.7+
 - Julep API key
-- OpenWeather API key
 
 ## Installation
 
@@ -34,7 +33,6 @@ uv sync
 ```env
 JULEP_API_KEY=your_julep_api_key
 JULEP_ENVIRONMENT=production
-OPENWEATHER_API_KEY=your_openweather_api_key
 ```
 
 ## Usage
@@ -85,6 +83,6 @@ Example structure:
 
 - `main.py`: Main application script
 - `foodie_tour_task.yaml`: Task configuration for the Julep agent
-- `requirements.txt`: Python dependencies
+- `pyproject.toml`: Python dependencies
 - `.env`: Environment variables (not tracked in git)
 - `foodie_tours.json`: Generated tour data

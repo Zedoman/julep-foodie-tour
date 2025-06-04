@@ -13,8 +13,8 @@ tools:
   type: integration
   integration:
     provider: weather
-    setup:
-      openweathermap_api_key: ${OPENWEATHER_API_KEY}
+    setup: {}
+      # openweathermap_api_key: ${OPENWEATHER_API_KEY}
 
 - name: search
   type: integration

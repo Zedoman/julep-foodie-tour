@@ -24,7 +24,7 @@ agent = client.agents.create(
 # Step 2: Create task
 with open("foodie_tour_task.yaml") as f:
     task_yaml = f.read()
-    task_yaml = task_yaml.replace("${OPENWEATHER_API_KEY}", os.getenv("OPENWEATHER_API_KEY"))
+    # task_yaml = task_yaml.replace("${OPENWEATHER_API_KEY}", os.getenv("OPENWEATHER_API_KEY"))
 
 task = client.tasks.create(
     agent_id=agent.id,
@@ -37,6 +37,9 @@ task = client.tasks.create(
                 "arguments": {
                     "location": "$ _"
                 }
+            },
+            "error": {
+                "message": "Failed to retrieve weather data. Please check your OpenWeather API key and internet connection."
             }
         },
         {
