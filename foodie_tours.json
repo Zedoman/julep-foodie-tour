@@ -1,0 +1,118 @@
+{
+  "cities": [
+    "Paris",
+    "New York",
+    "Tokyo"
+  ],
+  "tours": {
+    "Paris": {
+      "dishes": [
+        "Start with fresh croissants and café au lait at Du Pain et des Idées"
+      ],
+      "restaurants": [
+        "Du Pain et des Idées",
+        "Ladurée or Pierre Hermé",
+        "Au Pied de Cochon",
+        "Le Relais de l'Entrecôte",
+        "L'Arpège or Guy Savoy",
+        "Bistrot Paul Bert",
+        "street vendors"
+      ],
+      "itinerary": {
+        "morning": [
+          "Start with fresh croissants and café au lait at Du Pain et des Idées",
+          "Visit local fromageries for cheese tasting",
+          "Sample macarons at Ladurée or Pierre Hermé"
+        ],
+        "lunch": [
+          "Classic French onion soup at Au Pied de Cochon",
+          "Steak-frites at Le Relais de l'Entrecôte",
+          "Wine and charcuterie tasting in Le Marais"
+        ],
+        "dinner": [
+          "Fine dining at L'Arpège or Guy Savoy",
+          "Classic bistro experience at Bistrot Paul Bert",
+          "Late-night crêpes from street vendors"
+        ]
+      }
+    },
+    "New York": {
+      "dishes": [
+        "Bagels and lox at Russ & Daughters",
+        "Pizza tour in Brooklyn (Grimaldi's, L&B Spumoni Gardens)",
+        "Pastrami sandwich at Katz's Delicatessen",
+        "Hot dogs at Gray's Papaya"
+      ],
+      "restaurants": [
+        "Russ & Daughters",
+        "Dominique Ansel Bakery",
+        "Katz's Delicatessen",
+        "Chelsea Market",
+        "Gray's Papaya",
+        "Le Bernardin"
+      ],
+      "itinerary": {
+        "morning": [
+          "Bagels and lox at Russ & Daughters",
+          "Coffee and pastries at Dominique Ansel Bakery",
+          "Pizza tour in Brooklyn (Grimaldi's, L&B Spumoni Gardens)"
+        ],
+        "lunch": [
+          "Pastrami sandwich at Katz's Delicatessen",
+          "Food hall exploration at Chelsea Market",
+          "Hot dogs at Gray's Papaya"
+        ],
+        "dinner": [
+          "Fine dining at Le Bernardin",
+          "Chinese food in Flushing, Queens",
+          "Late-night halal cart experience"
+        ]
+      }
+    },
+    "Tokyo": {
+      "dishes": [
+        "Tsukiji Outer Market",
+        "Ramen at Nakiryu or Fuunji",
+        "Tempura at Tempura Tsunahachi",
+        "High-end sushi experience at Sukiyabashi Jiro",
+        "Late-night yakitori in Memory Lane (Omoide Yokocho)"
+      ],
+      "restaurants": [
+        "Tsuta",
+        "% Arabica",
+        "Nakiryu or Fuunji",
+        "Tempura Tsunahachi",
+        "Maisen",
+        "Sukiyabashi Jiro"
+      ],
+      "itinerary": {
+        "morning": [
+          "Tsukiji Outer Market for fresh sushi breakfast",
+          "Traditional Japanese breakfast at Tsuta",
+          "Coffee at % Arabica"
+        ],
+        "lunch": [
+          "Ramen at Nakiryu or Fuunji",
+          "Tempura at Tempura Tsunahachi",
+          "Tonkatsu at Maisen"
+        ],
+        "dinner": [
+          "Izakaya hopping in Shinjuku",
+          "High-end sushi experience at Sukiyabashi Jiro",
+          "Late-night yakitori in Memory Lane (Omoide Yokocho)",
+          "Book fine dining restaurants well in advance",
+          "Consider food tours with local guides",
+          "Visit local markets in each city",
+          "Try street food when available",
+          "Take cooking classes if time permits"
+        ]
+      }
+    }
+  },
+  "created_at": "2025-06-04T05:49:54.463332+00:00",
+  "usage": {
+    "completion_tokens": 554,
+    "prompt_tokens": 52,
+    "total_tokens": 606
+  }
+}

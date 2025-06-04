@@ -1,0 +1,79 @@
+name: foodie_tour_planner
+
+input_schema:
+  type: object
+  properties:
+    cities:
+      type: array
+      items:
+        type: string
+
+tools:
+- name: weather
+  type: integration
+  integration:
+    provider: weather
+    setup:
+      openweathermap_api_key: ${OPENWEATHER_API_KEY}
+
+- name: search
+  type: integration
+  integration:
+    provider: duckduckgo
+    setup: {}
+
+main:
+# Step 1: Get weather for each city
+- over: $ _.cities
+  map:
+    tool: weather
+    arguments:
+      location: $ _
+
+# Step 2: Suggest indoor/outdoor dining per city
+- evaluate:
+    dining_suggestions: $ [
+      {
+        "city": c,
+        "weather": w['weather'][0]['main'],
+        "recommendation": "outdoor" if w['main']['temp'] > 18 and w['weather'][0]['main'] in ["Clear", "Clouds"] else "indoor"
+      }
+      for c, w in zip(_.cities, steps[0].output)
+    ]
+
+# Step 3: Generate local iconic dishes
+- over: $ _.cities
+  map:
+    prompt:
+    - role: system
+      content: $ f"List 3 iconic local dishes from {{_}}."
+    unwrap: true
+
+# Step 4: Search for restaurants that serve the dishes
+- over: $ zip(_.cities, steps[2].output)
+  map:
+    tool: search
+    arguments:
+      query: $ f"Best restaurants in {_[0]} serving {', '.join(_[1])}"
+
+# Step 5: Generate a foodie tour
+- over: $ zip(_.cities, steps[0].output, steps[1].output, steps[2].output, steps[3].output)
+  map:
+    prompt:
+    - role: system
+      content: |
+        $ f"""
+        You're a travel writer crafting a delightful one-day foodie tour in {_[0]}.
+        The weather today is {_[1]['weather'][0]['description']} with a temperature of {_[1]['main']['temp']}°C.
+
+        Recommend breakfast, lunch, and dinner options based on these iconic dishes: {', '.join(_[3])}.
+        Use this restaurant list for suggestions: {_[4]}
+
+        Indicate if dining should be indoors or outdoors: {_[2]['recommendation']}.
+        Write a charming narrative for the foodie journey.
+        """
+    unwrap: true
+
+# Final: Combine all tours
+- evaluate:
+    tour: $ "\n\n---\n\n".join(_)
